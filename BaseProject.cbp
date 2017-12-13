@@ -33,7 +33,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O" />
+					<Add option="-O1" />
 					<Add option="-ftest-coverage -fprofile-arcs" />
 					<Add option="-DTEST" />
 				</Compiler>

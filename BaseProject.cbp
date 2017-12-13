@@ -49,6 +49,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/main.h" />
+		<Unit filename="test/TestMain.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

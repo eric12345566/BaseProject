@@ -34,5 +34,5 @@
 ## Test Code 寫法
 * 主程式 `src/main.cpp` 的 main function 要用 `#ifndef TEST`、`#endif` 包裹
 * 測試的 code 請寫在 `test/TestMain.cpp`
-* `test/TestMain.cpp` 如果要呼叫 `src/main.cpp` 的 function，請記得在 header (`src/main.h`) 理定義 function
+* `test/TestMain.cpp` 如果要呼叫 `src/main.cpp` 的 function，請記得在 header (`src/main.h`) 裡定義 function
 

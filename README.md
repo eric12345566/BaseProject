@@ -1,6 +1,6 @@
 # BaseProject-Cpp
-[![Build Status](https://travis-ci.org/1061-FCU-SE/BaseProject-Cpp.svg?branch=master)](https://travis-ci.org/1061-FCU-SE/BaseProject-Cpp)
-[![codecov](https://codecov.io/gh/1061-FCU-SE/BaseProject-Cpp/branch/master/graph/badge.svg)](https://codecov.io/gh/1061-FCU-SE/BaseProject-Cpp)
+[![Build Status](https://travis-ci.org/1071-FCU-SE/BaseProject-Cpp.svg?branch=master)](https://travis-ci.org/1071-FCU-SE/BaseProject-Cpp)
+[![codecov](https://codecov.io/gh/1071-FCU-SE/BaseProject-Cpp/branch/master/graph/badge.svg)](https://codecov.io/gh/1071-FCU-SE/BaseProject-Cpp)
 
 分組專題基本樣板(C++)
 
@@ -16,7 +16,7 @@
 ```
 
 # 介紹
-1061 逢甲軟體工程課程使用的專題基礎專案。請使用 [Code::Blocks](http://www.codeblocks.org/) 開發
+1071 逢甲軟體工程課程使用的專題基礎專案。請使用 [Code::Blocks](http://www.codeblocks.org/) 開發
 
 # 特色
 * 使用 Code::Blocks 開發，適合初學者
@@ -35,4 +35,3 @@
 * 主程式 `src/main.cpp` 的 main function 要用 `#ifndef TEST`、`#endif` 包裹
 * 測試的 code 請寫在 `test/TestMain.cpp`
 * `test/TestMain.cpp` 如果要呼叫 `src/main.cpp` 的 function，請記得在 header (`src/main.h`) 裡定義 function
-

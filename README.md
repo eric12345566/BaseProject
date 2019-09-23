@@ -1,6 +1,6 @@
 # BaseProject-Cpp
-[![Build Status](https://travis-ci.org/1071-FCU-SE/BaseProject-Cpp.svg?branch=master)](https://travis-ci.org/1071-FCU-SE/BaseProject-Cpp)
-[![codecov](https://codecov.io/gh/1071-FCU-SE/BaseProject-Cpp/branch/master/graph/badge.svg)](https://codecov.io/gh/1071-FCU-SE/BaseProject-Cpp)
+[![Build Status](https://travis-ci.org/1081-FCU-SE/BaseProject.svg?branch=master)](https://travis-ci.org/1081-FCU-SE/BaseProject)
+[![codecov](https://codecov.io/gh/1081-FCU-SE/BaseProject/branch/master/graph/badge.svg)](https://codecov.io/gh/1081-FCU-SE/BaseProject)
 
 分組專題基本樣板(C++)
 
@@ -16,7 +16,7 @@
 ```
 
 # 介紹
-1071 逢甲軟體工程課程使用的專題基礎專案。請使用 [Code::Blocks](http://www.codeblocks.org/) 開發
+1081 逢甲軟體工程課程使用的專題基礎專案。請使用 [Code::Blocks](http://www.codeblocks.org/) 開發
 
 # 特色
 * 使用 Code::Blocks 開發，適合初學者

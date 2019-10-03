@@ -8,7 +8,7 @@
 ```
 .
 ├── ...
-├── docs                    # Documentation
+├── doc                     # Documentation
 ├── diagrams                # UML Diagrams
 ├── src                     # Application sources
 ├── test                    # Test sources

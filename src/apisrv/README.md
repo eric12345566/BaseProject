@@ -18,4 +18,4 @@ yarn start
 ```
 
 ## API Doc
-no, not yet.
+No, not yet.

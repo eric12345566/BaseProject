@@ -1,6 +1,7 @@
 import express from 'express';
 import mysql from 'mysql';
 import config from '../../config/config';
+import user from './user.route';
 
 const router = express.Router();
 
@@ -28,5 +29,8 @@ router.get('/sqlTest', (req, res) => {
     }
   });
 });
+
+/** User Router */
+router.use('/user', user);
 
 export default router;

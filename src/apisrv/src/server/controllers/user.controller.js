@@ -1,10 +1,18 @@
 // user.controller.js
+import bcrypt from 'bcrypt';
 import userModule from '../modules/user.module';
 
 /* User  POST 新增 */
 const userPost = (req, res) => {
   // 取得新增參數
-  const insertValues = req.body;
+  const insertValues = {
+    name: req.body.name,
+    username: req.body.username,
+    userpassword: bcrypt.hashSync(req.body.userpassword, 10), // 密碼加密,
+    email: req.body.email,
+    birthday: req.body.birthday,
+    gender: req.body.gender
+  };
   userModule.createUser(insertValues).then((result) => {
     res.send(result); // 成功回傳result結果
   }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
@@ -37,9 +45,19 @@ const userDelete = (req, res) => {
   }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
 };
 
+/* User  POST 登入(Login) */
+const userLogin = (req, res) => {
+  // 取得帳密
+  const insertValues = req.body;
+  userModule.selectUserLogin(insertValues).then((result) => {
+    res.send(result); // 成功回傳result結果
+  }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
+};
+
 export default {
   userPost,
   userGet,
   userPut,
-  userDelete
+  userDelete,
+  userLogin
 };

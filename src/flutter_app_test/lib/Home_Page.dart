@@ -58,26 +58,9 @@ class Home_Page extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      MaterialButton(
-                        padding: EdgeInsets.all(8.0),
-                        textColor: Colors.white,
-                        splashColor: Colors.greenAccent,
-                        elevation: 8.0,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage('image/IconSlot.png'),
-                                fit: BoxFit.cover),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("SIGN OUT"),
-                          ),
-                        ),
-                        // ),
-                        onPressed: () {
-                          print('Tapped');
-                        },
+                      FlatButton(
+                        child: Image.asset('image/IconSlot.png'),
+                        onPressed: (){},
                       ),
                       FlatButton(
                         child: Image.asset('image/IconCard.png'),

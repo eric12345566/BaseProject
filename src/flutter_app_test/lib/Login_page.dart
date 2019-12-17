@@ -5,6 +5,7 @@ import 'package:http/http.dart';
 import 'dart:convert';
 import 'main.dart';
 import 'Home_Page.dart';
+import 'Register_Page.dart';
 
 class Login_page extends StatelessWidget {
   static const String id = "Login_page";
@@ -14,15 +15,42 @@ class Login_page extends StatelessWidget {
 
   _makeGetRequest() async {
     // make GET request
-    String url = 'https://jsonplaceholder.typicode.com/posts';
+    String url = 'https://jsonplaceholder.typicode.com/posts/';
     Response response = await get(url);
     // sample info available in response
     int statusCode = response.statusCode;
     Map<String, String> headers = response.headers;
     String contentType = headers['content-type'];
     String json = response.body;
-    Map<String, dynamic> map = jsonDecode(json);
-    print(map);
+    List<dynamic> resList = jsonDecode(json);
+    print(resList[0]["title"]);
+  }
+
+  _loginFalesAlert(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('登入失敗'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('帳號或密碼錯誤，請重新嘗試！'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('好的'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -120,6 +148,8 @@ class Login_page extends StatelessWidget {
                           FlatButton(
                             child: Text('註冊帳號'),
                             onPressed: () {
+                              Navigator.pushNamed(context, Register.id);
+                              print('press login');
                               print('這裡要接註冊帳號頁面');
                             },
                           )
@@ -146,6 +176,7 @@ class Login_page extends StatelessWidget {
                             Navigator.pushNamed(context, Home_Page.id);
                             print('press login');
                             _makeGetRequest();
+                            _loginFalesAlert(context);
                           },
                           elevation: 30,
                           color: Color.fromRGBO(250, 149, 25, 10) //245,211,25

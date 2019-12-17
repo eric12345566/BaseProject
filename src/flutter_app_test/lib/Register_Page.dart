@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+
 class Register extends StatelessWidget {
+  static const String id = "Register";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -127,65 +129,61 @@ class _Register_State extends State<Register_> {
               ),
             ),
           ),
-
           Container(
             width: 338,
             child: Card(
-                child: new DropdownButtonHideUnderline(
-                  child: Container(
-                    margin: EdgeInsets.only(left: 50),
-                    child: new DropdownButton<String>(
-                      value: dropdownValue,
-                      icon: new Icon(Icons.arrow_downward ),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: new TextStyle(
-                          color: Colors.grey
-                      ),
-                      onChanged: (String newValue) {
-                        setState(() {
-                          dropdownValue = newValue;
-                          print('$dropdownValue');
-                        });
-                      },
-                      items: <String>['生理男性', '生理女性']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: new Text(value),
-                        );
-                      }).toList(),
-                    ),
+              child: new DropdownButtonHideUnderline(
+                child: Container(
+                  margin: EdgeInsets.only(left: 50),
+                  child: new DropdownButton<String>(
+                    value: dropdownValue,
+                    icon: new Icon(Icons.arrow_downward),
+                    iconSize: 24,
+                    elevation: 16,
+                    style: new TextStyle(color: Colors.grey),
+                    onChanged: (String newValue) {
+                      setState(() {
+                        dropdownValue = newValue;
+                        print('$dropdownValue');
+                      });
+                    },
+                    items: <String>['生理男性', '生理女性']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: new Text(value),
+                      );
+                    }).toList(),
                   ),
                 ),
-              elevation: 10,
               ),
+              elevation: 10,
+            ),
           ),
           SizedBox(
             height: 12,
           ),
-        Card(
-          child: Container(
-            width: 330,
-            child: FlatButton(
-              onPressed: () {
-                DatePicker.showDatePicker(context,
-                    showTitleActions: true,
-                    minTime: DateTime(1920, 1, 1),
-                    maxTime: DateTime(2019, 12, 31), onChanged: (date) {
+          Card(
+            child: Container(
+              width: 330,
+              child: FlatButton(
+                  onPressed: () {
+                    DatePicker.showDatePicker(context,
+                        showTitleActions: true,
+                        minTime: DateTime(1920, 1, 1),
+                        maxTime: DateTime(2019, 12, 31), onChanged: (date) {
                       print('change $date');
                     }, onConfirm: (date) {
                       print('confirm $date');
                     }, currentTime: DateTime.now(), locale: LocaleType.zh);
-              },
-              child: Text(
-                '選擇您的出生日期',
-                style: TextStyle(color: Colors.blue),
-              )),
+                  },
+                  child: Text(
+                    '選擇您的出生日期',
+                    style: TextStyle(color: Colors.blue),
+                  )),
+            ),
+            elevation: 10,
           ),
-          elevation: 10,
-        ),
-
           SizedBox(
             height: 30,
           ),
@@ -200,13 +198,13 @@ class _Register_State extends State<Register_> {
               activeColor: Colors.deepOrangeAccent,
               selected: false,
               value: checkboxListChecked,
-              title: Text("勾選表示同意我們的使用條款" ,style: TextStyle(
-                fontSize: 12
-              ),),
+              title: Text(
+                "勾選表示同意我們的使用條款",
+                style: TextStyle(fontSize: 12),
+              ),
               controlAffinity: ListTileControlAffinity.leading,
             ),
           ),
-
           ButtonTheme(
             minWidth: 100,
             height: 38,
@@ -223,7 +221,6 @@ class _Register_State extends State<Register_> {
                 color: Color.fromRGBO(250, 149, 25, 10) //245,211,25
                 ),
           ),
-
           SizedBox(
             height: 100,
           ),

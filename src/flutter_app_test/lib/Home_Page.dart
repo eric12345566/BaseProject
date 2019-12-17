@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'main.dart';
 
 class Home_Page extends StatelessWidget {
+  static const String id = "Home_Page";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,9 +29,11 @@ class Home_Page extends StatelessWidget {
                             color: Colors.black87,
                           ),
                           children: <TextSpan>[
-                            new TextSpan(text: '嗨 !'),
+                            new TextSpan(text: '嗨! '),
                             new TextSpan(
-                                text: '國瑜',
+                                text: Provider.of<Data>(context)
+                                    .data['user']
+                                    .toString(), // 使用者名稱取自 state
                                 style: new TextStyle(
                                     color: Colors.deepOrangeAccent)),
                             new TextSpan(text: ' ，要'),
@@ -53,34 +59,41 @@ class Home_Page extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 40,),
+              SizedBox(
+                height: 40,
+              ),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      FlatButton(
-                        child: Image.asset('image/IconSlot.png'),
-                        onPressed: (){},
-                      ),
-                      FlatButton(
-                        child: Image.asset('image/IconCard.png'),
-                        onPressed: (){},
-                      ),
-                      FlatButton(
-                        child: Image.asset('image/IconMission.png'),
-                        onPressed: (){},
-                      ),
-                      FlatButton(
-                        child: Image.asset('image/IconWait.png'),
-                        onPressed: (){},
-                      )
-                    ],
+                  children: <Widget>[
+                    FlatButton(
+                      child: Image.asset('image/IconSlot.png'),
+                      onPressed: () {},
+                    ),
+                    FlatButton(
+                      child: Image.asset('image/IconCard.png'),
+                      onPressed: () {},
+                    ),
+                    FlatButton(
+                      child: Image.asset('image/IconMission.png'),
+                      onPressed: () {},
+                    ),
+                    FlatButton(
+                      child: Image.asset('image/IconWait.png'),
+                      onPressed: () {},
+                    )
+                  ],
                 ),
               ),
-              SizedBox(height: 20.0,),
+              SizedBox(
+                height: 20.0,
+              ),
               Container(
-                alignment: Alignment(-0.835,0),
-                child: Text('附近餐廳',style: TextStyle(fontWeight: FontWeight.bold, fontSize:23.0 ),),
+                alignment: Alignment(-0.835, 0),
+                child: Text(
+                  '附近餐廳',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
+                ),
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 20.0),
@@ -93,18 +106,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/coffee.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/coffee.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('凱恩斯咖啡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '凱恩斯咖啡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('輕鬆/咖啡/適合聊天',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '輕鬆/咖啡/適合聊天',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),
@@ -116,19 +136,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/ham.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/ham.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('張三漢堡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '張三漢堡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('聚會/啤酒/美式餐點',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '聚會/啤酒/美式餐點',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),
@@ -140,18 +166,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/coffee.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/coffee.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('凱恩斯咖啡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '凱恩斯咖啡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('輕鬆/咖啡/適合聊天',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '輕鬆/咖啡/適合聊天',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),
@@ -163,18 +196,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/coffee.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/coffee.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('凱恩斯咖啡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '凱恩斯咖啡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('輕鬆/咖啡/適合聊天',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '輕鬆/咖啡/適合聊天',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),
@@ -186,18 +226,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/coffee.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/coffee.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('凱恩斯咖啡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '凱恩斯咖啡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('輕鬆/咖啡/適合聊天',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '輕鬆/咖啡/適合聊天',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),
@@ -208,8 +255,11 @@ class Home_Page extends StatelessWidget {
                 ),
               ),
               Container(
-                alignment: Alignment(-0.835,0),
-                child: Text('今日熱門',style: TextStyle(fontWeight: FontWeight.bold, fontSize:23.0 ),),
+                alignment: Alignment(-0.835, 0),
+                child: Text(
+                  '今日熱門',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
+                ),
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 20.0),
@@ -222,18 +272,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/coffee.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/coffee.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('凱恩斯咖啡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '凱恩斯咖啡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('輕鬆/咖啡/適合聊天',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '輕鬆/咖啡/適合聊天',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),
@@ -245,19 +302,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/ham.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/ham.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('張三漢堡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '張三漢堡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('聚會/啤酒/美式餐點',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '聚會/啤酒/美式餐點',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),
@@ -269,18 +332,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/coffee.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/coffee.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('凱恩斯咖啡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '凱恩斯咖啡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('輕鬆/咖啡/適合聊天',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '輕鬆/咖啡/適合聊天',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),
@@ -292,18 +362,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/coffee.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/coffee.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('凱恩斯咖啡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '凱恩斯咖啡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('輕鬆/咖啡/適合聊天',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '輕鬆/咖啡/適合聊天',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),
@@ -315,18 +392,25 @@ class Home_Page extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Card(
                         child: InkWell(
-                          onTap: () async {
-                          },
+                          onTap: () async {},
                           child: Column(
                             children: <Widget>[
-                              Image.asset('image/coffee.png',fit:BoxFit.fitWidth),
+                              Image.asset('image/coffee.png',
+                                  fit: BoxFit.fitWidth),
                               SizedBox(height: 8.50),
                               Container(
-                                  alignment: Alignment(-0.8,10),
-                                  child: Text('凱恩斯咖啡',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  alignment: Alignment(-0.8, 10),
+                                  child: Text(
+                                    '凱恩斯咖啡',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                               SizedBox(height: 8.50),
                               Container(
-                                  child: Text('輕鬆/咖啡/適合聊天',style: TextStyle(fontSize: 10),))
+                                  child: Text(
+                                '輕鬆/咖啡/適合聊天',
+                                style: TextStyle(fontSize: 10),
+                              ))
                             ],
                           ),
                         ),

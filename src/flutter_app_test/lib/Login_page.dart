@@ -12,10 +12,11 @@ class Login_page extends StatelessWidget {
 
   static final formKey = GlobalKey<FormState>();
   Map data = {'user': String, 'password': String};
+  bool isLogin = false;
 
   _makeGetRequest() async {
     // make GET request
-    String url = 'https://jsonplaceholder.typicode.com/posts/';
+    String url = 'http://ericlion.tw:3000/api/user';
     Response response = await get(url);
     // sample info available in response
     int statusCode = response.statusCode;
@@ -23,7 +24,40 @@ class Login_page extends StatelessWidget {
     String contentType = headers['content-type'];
     String json = response.body;
     List<dynamic> resList = jsonDecode(json);
-    print(resList[0]["title"]);
+    print(resList[0]["username"]);
+    print(resList[0]["userpassword"]);
+  }
+
+  _makePostRequest(BuildContext context) async {
+    // set up POST request arguments
+    String url = 'http://ericlion.tw:3000/api/user/login';
+    Map<String, String> headers = {"Content-type": "application/json"};
+    String json1 = '{"username": "' +
+        data['user'] +
+        '", "userpassword": "' +
+        data['password'] +
+        '"}';
+    String json =
+        '{"username":"${data['user']}", "userpassword": "${data['password']}"}';
+    // make POST request
+    Response response = await post(url, headers: headers, body: json);
+    // check the status code for the result
+    int statusCode = response.statusCode;
+    // this API passes back the id of the new0 item added to the body
+    String body = response.body;
+
+    print(json);
+    print(statusCode);
+    print(body);
+
+    if (body == '登入成功') {
+      //Navigator.pushNamed(context, Home_Page.id);
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => Home_Page()),
+          (Route<dynamic> route) => false);
+    } else {
+      _loginFalesAlert(context);
+    }
   }
 
   _loginFalesAlert(BuildContext context) {
@@ -173,10 +207,15 @@ class Login_page extends StatelessWidget {
                             formKey.currentState.save();
                             Provider.of<Data>(context).updateAccount(data);
                             formKey.currentState.reset();
-                            Navigator.pushNamed(context, Home_Page.id);
                             print('press login');
-                            _makeGetRequest();
-                            _loginFalesAlert(context);
+                            _makePostRequest(context);
+//                            if (isLogin == true) {
+//                              Navigator.pushNamed(context, Home_Page.id);
+//                              print("next page");
+//                            } else {
+//                              _loginFalesAlert(context);
+//                              print("login error");
+//                            }
                           },
                           elevation: 30,
                           color: Color.fromRGBO(250, 149, 25, 10) //245,211,25

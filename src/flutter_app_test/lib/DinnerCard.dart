@@ -2,14 +2,11 @@ import 'dart:ui' as prefix0;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'Home_Page.dart';
 
-
-class MyApp extends StatelessWidget {
+class DinnerCard extends StatelessWidget {
   Widget build(BuildContext context) {
-    final _showSnack = () => Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text('Button tapped'),
-          duration: Duration(milliseconds: 500),
-        ));
+
 
     return MaterialApp(
       home: Scaffold(
@@ -24,7 +21,10 @@ class MyApp extends StatelessWidget {
                   iconSize: 25,
                   icon: Icon(Icons.arrow_back_ios),
                   color: Colors.white,
-                  onPressed: _showSnack,
+                  onPressed: (){
+                    Navigator.pop(context,
+                        MaterialPageRoute(builder: (context) => Home_Page()));
+                  },
                 ),
               ),
               Container(
@@ -190,7 +190,9 @@ class MyApp extends StatelessWidget {
                       ],
                     ),
                     color: Colors.white,
-                    onPressed: _showSnack,
+                    onPressed:(){
+
+                    },
                   ),
                 ),
               elevation: 10),

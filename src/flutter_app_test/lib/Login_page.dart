@@ -32,11 +32,6 @@ class Login_page extends StatelessWidget {
     // set up POST request arguments
     String url = 'http://ericlion.tw:3000/api/user/login';
     Map<String, String> headers = {"Content-type": "application/json"};
-    String json1 = '{"username": "' +
-        data['user'] +
-        '", "userpassword": "' +
-        data['password'] +
-        '"}';
     String json =
         '{"username":"${data['user']}", "userpassword": "${data['password']}"}';
     // make POST request

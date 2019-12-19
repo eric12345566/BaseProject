@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'Home_Page.dart';
 
 class DinnerCard extends StatelessWidget {
+  static const String id = "DinnerCard";
   Widget build(BuildContext context) {
 
 

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'Login_page.dart';
 import 'Register_Page.dart';
 import 'Home_Page.dart';
+import 'DinnerCard.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: MaterialApp(home: Login_page(), routes: {
         Home_Page.id: (context) => Home_Page(),
         Register.id: (context) => Register(),
+        DinnerCard.id: (context) => DinnerCard(),
       }),
     );
   }

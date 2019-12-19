@@ -1,9 +1,9 @@
 #Internal package file, do not edit.
-#Sun Dec 15 14:25:39 CST 2019
+#Sun Dec 15 15:17:57 CST 2019
 4.path=flutter_assets/LICENSE
 13.baseType=DIRECTORY
 8.set=DEX
-6.path=flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+6.path=flutter_assets/isolate_snapshot_data
 0.baseType=DIRECTORY
 10.path=lib/x86/libflutter.so
 5.baseType=DIRECTORY
@@ -31,13 +31,13 @@
 2.baseType=DIRECTORY
 10.baseType=DIRECTORY
 15.baseType=DIRECTORY
-1.path=flutter_assets/image/image1.png
+1.path=flutter_assets/restimage/image4.png
 7.baseType=DIRECTORY
-3.path=flutter_assets/image/image4.png
+3.path=flutter_assets/FontManifest.json
 10.set=NATIVE_RESOURCE
-5.path=flutter_assets/image/image2.png
+5.path=flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
 0.base=C\:\\flutterapp\\flutter1\\build\\app\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
-7.path=flutter_assets/isolate_snapshot_data
+7.path=flutter_assets/restimage/image2.png
 11.path=flutter_assets/kernel_blob.bin
 9.path=flutter_assets/vm_snapshot_data
 6.set=ASSET
@@ -61,7 +61,7 @@ count=16
 4.baseType=DIRECTORY
 5.set=ASSET
 9.baseType=DIRECTORY
-0.path=flutter_assets/image/image3.png
+0.path=flutter_assets/restimage/image1.png
 12.set=NATIVE_RESOURCE
 1.set=ASSET
-2.path=flutter_assets/FontManifest.json
+2.path=flutter_assets/restimage/image3.png

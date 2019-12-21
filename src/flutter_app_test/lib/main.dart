@@ -4,8 +4,9 @@ import 'Login_page.dart';
 import 'Register_Page.dart';
 import 'Home_Page.dart';
 import 'DinnerCard.dart';
+import 'Mission_Page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Mission_Page());
 
 class MyApp extends StatelessWidget {
   @override

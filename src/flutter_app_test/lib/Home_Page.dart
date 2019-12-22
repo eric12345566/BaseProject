@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_test/Merging.dart';
 import 'package:provider/provider.dart';
 import 'main.dart';
 import 'DinnerCard.dart';
+import 'Merging.dart';
+import 'Register_Page.dart';
 
 class Home_Page extends StatelessWidget {
   static const String id = "Home_Page";
@@ -70,12 +73,12 @@ class Home_Page extends StatelessWidget {
                     children: <Widget>[
                       FlatButton(
                         child: Image.asset('image/IconSlot.png'),
-                        onPressed: () {Navigator.push(context,
+                        onPressed: () async {Navigator.push(context,
                             MaterialPageRoute(builder: (context) => DinnerCard()));},
                       ),
                       FlatButton(
                         child: Image.asset('image/IconCard.png'),
-                        onPressed: () {},
+                        onPressed: () {print("!!!");},
                       ),
                       FlatButton(
                         child: Image.asset('image/IconMission.png'),
@@ -139,7 +142,11 @@ class Home_Page extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: Card(
                           child: InkWell(
-                            onTap: () async {},
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => Mer()));
+                              print('yeah');
+                            },
                             child: Column(
                               children: <Widget>[
                                 Image.asset('image/ham.png',
@@ -169,7 +176,7 @@ class Home_Page extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: Card(
                           child: InkWell(
-                            onTap: () async {},
+                            onTap: () async {print("!!!");},
                             child: Column(
                               children: <Widget>[
                                 Image.asset('image/coffee.png',

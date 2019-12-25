@@ -6,6 +6,28 @@ import 'DinnerCard.dart';
 import 'Merging.dart';
 import 'Register_Page.dart';
 
+
+
+Future<void> showAlert(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('測試標題'),
+        content: const Text('測試內容.....'),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('確定'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
 class Home_Page extends StatelessWidget {
   static const String id = "Home_Page";
 
@@ -78,7 +100,7 @@ class Home_Page extends StatelessWidget {
                       ),
                       FlatButton(
                         child: Image.asset('image/IconCard.png'),
-                        onPressed: () {print("!!!");},
+                        onPressed: () async{showAlert(context);},
                       ),
                       FlatButton(
                         child: Image.asset('image/IconMission.png'),
@@ -112,7 +134,7 @@ class Home_Page extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: Card(
                           child: InkWell(
-                            onTap: () async {},
+                            onTap: () async {{showAlert(context);}},
                             child: Column(
                               children: <Widget>[
                                 Image.asset('image/coffee.png',

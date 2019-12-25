@@ -7,6 +7,7 @@ import 'Home_Page.dart';
 import 'DinnerCard.dart';
 import 'Mission_Page.dart';
 import 'Merging.dart';
+import 'Choose.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Register.id: (context) => Register(),
         DinnerCard.id: (context) => DinnerCard(),
         Mer.id: (context) => Mer(),
+        Choose.id : (context) =>Choose(),
       }),
     );
   }

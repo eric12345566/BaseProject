@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_test/Choose.dart';
 import 'package:flutter_app_test/Merging.dart';
 import 'package:provider/provider.dart';
 import 'main.dart';
 import 'DinnerCard.dart';
 import 'Merging.dart';
+import 'Choose.dart';
 import 'Register_Page.dart';
+import 'dart:async';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 
 
@@ -30,6 +35,24 @@ Future<void> showAlert(BuildContext context) {
 
 class Home_Page extends StatelessWidget {
   static const String id = "Home_Page";
+
+  Future<List<User>> _getUsers() async{
+
+    var data = await http.get("");
+
+    var jsonData = json.decode(data);
+
+    List<User> users = [];
+
+    for (var u in jsonData){
+
+      User user = User(u["index"], u["name"]);
+
+      users.add(user);
+
+      print(users.length);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +123,8 @@ class Home_Page extends StatelessWidget {
                       ),
                       FlatButton(
                         child: Image.asset('image/IconCard.png'),
-                        onPressed: () async{showAlert(context);},
+                        onPressed: () async {Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Choose()));},
                       ),
                       FlatButton(
                         child: Image.asset('image/IconMission.png'),
@@ -459,4 +483,14 @@ class Home_Page extends StatelessWidget {
       ),
     );
   }
+}
+
+class User{
+    final int index;
+    final String name;
+
+
+    User(this.index ,this.name);
+
+
 }

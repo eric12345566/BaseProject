@@ -11,8 +11,6 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-
-
 Future<void> showAlert(BuildContext context) {
   return showDialog<void>(
     context: context,
@@ -36,16 +34,14 @@ Future<void> showAlert(BuildContext context) {
 class Home_Page extends StatelessWidget {
   static const String id = "Home_Page";
 
-  Future<List<User>> _getUsers() async{
-
+  Future<List<User>> _getUsers() async {
     var data = await http.get("");
 
-    var jsonData = json.decode(data);
+    var jsonData = json.decode(data.body);
 
     List<User> users = [];
 
-    for (var u in jsonData){
-
+    for (var u in jsonData) {
       User user = User(u["index"], u["name"]);
 
       users.add(user);
@@ -118,13 +114,21 @@ class Home_Page extends StatelessWidget {
                     children: <Widget>[
                       FlatButton(
                         child: Image.asset('image/IconSlot.png'),
-                        onPressed: () async {Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => DinnerCard()));},
+                        onPressed: () async {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DinnerCard()));
+                        },
                       ),
                       FlatButton(
                         child: Image.asset('image/IconCard.png'),
-                        onPressed: () async {Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Choose()));},
+                        onPressed: () async {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Choose()));
+                        },
                       ),
                       FlatButton(
                         child: Image.asset('image/IconMission.png'),
@@ -144,7 +148,8 @@ class Home_Page extends StatelessWidget {
                   alignment: Alignment(-0.835, 0),
                   child: Text(
                     '附近餐廳',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
                   ),
                 ),
                 Container(
@@ -158,7 +163,11 @@ class Home_Page extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: Card(
                           child: InkWell(
-                            onTap: () async {{showAlert(context);}},
+                            onTap: () async {
+                              {
+                                showAlert(context);
+                              }
+                            },
                             child: Column(
                               children: <Widget>[
                                 Image.asset('image/coffee.png',
@@ -168,8 +177,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '凱恩斯咖啡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -189,8 +198,10 @@ class Home_Page extends StatelessWidget {
                         child: Card(
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => Mer()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Mer()));
                               print('yeah');
                             },
                             child: Column(
@@ -202,8 +213,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '張三漢堡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -222,7 +233,9 @@ class Home_Page extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: Card(
                           child: InkWell(
-                            onTap: () async {print("!!!");},
+                            onTap: () async {
+                              print("!!!");
+                            },
                             child: Column(
                               children: <Widget>[
                                 Image.asset('image/coffee.png',
@@ -232,8 +245,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '凱恩斯咖啡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -262,8 +275,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '凱恩斯咖啡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -292,8 +305,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '凱恩斯咖啡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -314,7 +327,8 @@ class Home_Page extends StatelessWidget {
                   alignment: Alignment(-0.835, 0),
                   child: Text(
                     '今日熱門',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
                   ),
                 ),
                 Container(
@@ -338,8 +352,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '凱恩斯咖啡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -368,8 +382,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '張三漢堡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -398,8 +412,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '凱恩斯咖啡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -428,8 +442,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '凱恩斯咖啡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -458,8 +472,8 @@ class Home_Page extends StatelessWidget {
                                     alignment: Alignment(-0.8, 10),
                                     child: Text(
                                       '凱恩斯咖啡',
-                                      style:
-                                          TextStyle(fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
                                     )),
                                 SizedBox(height: 8.50),
                                 Container(
@@ -485,12 +499,9 @@ class Home_Page extends StatelessWidget {
   }
 }
 
-class User{
-    final int index;
-    final String name;
+class User {
+  final int index;
+  final String name;
 
-
-    User(this.index ,this.name);
-
-
+  User(this.index, this.name);
 }

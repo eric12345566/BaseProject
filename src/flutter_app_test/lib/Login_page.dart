@@ -10,11 +10,11 @@ import 'Register_Page.dart';
 class Login_page extends StatelessWidget {
   static const String id = "Login_page";
 
-  static final formKey = GlobalKey<FormState>();
+  static final formKey = GlobalKey<FormState>();  //state 頁面資料傳遞
   Map data = {'user': String, 'password': String};
   bool isLogin = false;
 
-  _makeGetRequest() async {
+  _makeGetRequest() async { // http
     // make GET request
     String url = 'http://ericlion.tw:3000/api/user';
     Response response = await get(url);
@@ -28,15 +28,10 @@ class Login_page extends StatelessWidget {
     print(resList[0]["userpassword"]);
   }
 
-  _makePostRequest(BuildContext context) async {
+  _makePostRequest(BuildContext context) async { //連接Api用fuction
     // set up POST request arguments
-    String url = 'http://ericlion.tw:3000/api/user/login';
+    String url = 'http://ericlion.tw:3000/api/user/login';  //APi
     Map<String, String> headers = {"Content-type": "application/json"};
-    String json1 = '{"username": "' +
-        data['user'] +
-        '", "userpassword": "' +
-        data['password'] +
-        '"}';
     String json =
         '{"username":"${data['user']}", "userpassword": "${data['password']}"}';
     // make POST request

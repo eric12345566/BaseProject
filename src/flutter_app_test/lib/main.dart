@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_test/Merging.dart';
 import 'package:provider/provider.dart';
 import 'Login_page.dart';
 import 'Register_Page.dart';
 import 'Home_Page.dart';
+import 'DinnerCard.dart';
+import 'Mission_Page.dart';
+import 'Merging.dart';
+import 'Choose.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,6 +34,9 @@ class _MyHomePageState extends State<MyHomePage> {
       child: MaterialApp(home: Login_page(), routes: {
         Home_Page.id: (context) => Home_Page(),
         Register.id: (context) => Register(),
+        DinnerCard.id: (context) => DinnerCard(),
+        Mer.id: (context) => Mer(),
+        Choose.id : (context) =>Choose(),
       }),
     );
   }

@@ -4,6 +4,7 @@ import 'Home_Page.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'Merging.dart';
 
 class Choose extends StatelessWidget {
   static const String id = "Choose";
@@ -191,7 +192,15 @@ Future<List<User>> _getUsers() async {
                                       size: 40,
                                   ),
                               ),
-                              onTap: () {
+                              onTap: () async {
+                                {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context)=>Mer(rid: snapshot.data[i].rest_ID,)
+                                      )
+                                  );
+                                }
                               },
                             ),
                           ),

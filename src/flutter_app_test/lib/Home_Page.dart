@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_test/Choose.dart';
 import 'package:flutter_app_test/Merging.dart';
-import 'package:provider/provider.dart';
+//import 'package:provider/provider.dart';
 import 'main.dart';
 import 'DinnerCard.dart';
 import 'Merging.dart';
@@ -12,6 +12,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'special.dart';
 import 'chooserest.dart';
+
 Future<void> showAlert(BuildContext context) {
   return showDialog<void>(
     context: context,
@@ -98,9 +99,8 @@ class Home_Page extends StatelessWidget {
                             children: <TextSpan>[
                               new TextSpan(text: '嗨! '),
                               new TextSpan(
-                                  text: Provider.of<Data>(context)
-                                      .data['user']
-                                      .toString(), // 使用者名稱取自 state
+                                  //text: Provider.of<Data>(context).data['user'].toString(), // 使用者名稱取自 state
+                                  text: "eric",
                                   style: new TextStyle(
                                       color: Colors.deepOrangeAccent)),
                               new TextSpan(text: ' ，要'),

@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'Merging.dart';
-
+import 'Chat.dart';
 
 class Meeting extends StatelessWidget {
 
@@ -40,7 +40,8 @@ class _MeetState extends State<Meet> {
 
     for (var u in jsonData) {
       User user = User(u["userID"], u["name"], u["gender"], u["year"], u["rating"] ,
-          u["like_eat"], u["pic"],u["uni"],u["dp"],);
+          u["like_eat"], u["pic"],u["uni"],u["dp"]);
+
 
       users.add(user);
 
@@ -104,7 +105,7 @@ class _MeetState extends State<Meet> {
                                   width: 400,
                                   height: 400,
                                   child: Image(
-                                    image: NetworkImage('http://5b0988e595225.cdn.sohucs.com/images/20190305/1db93256bcd64241a0077cd2f135529d.jpeg'),
+                                    image: NetworkImage(snapshot.data[i].pic),
                                     width: 3,
                                     height: 3,
                                     fit: BoxFit.fill,
@@ -221,7 +222,17 @@ class _MeetState extends State<Meet> {
                                           ],
                                         ),
                                       ),
-                                      onTap: () {},
+                                      onTap: () {
+
+
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => Chat()));
+
+
+
+                                      },
                                     ),
                                   ),
                                 ),
@@ -297,6 +308,7 @@ class User {
   final String pic;
   final String uni;
   final String dp;
+
 
   User(this.userID, this.name, this.gender, this.year, this.rating, this.like_eat, this.pic, this.uni,this.dp);
 }

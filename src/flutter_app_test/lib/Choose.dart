@@ -38,7 +38,7 @@ Future<List<User>> _getUsers() async {
 
     for (var u in jsonData) {
       User user = User(u["rest_ID"], u["rest_name"], u["address"], u["type"], u["phoneNumber"] ,
-      u["opentime"], u["closetime"]);
+      u["opentime"], u["closetime"],u["res_urla"]);
 
       users.add(user);
 
@@ -82,10 +82,12 @@ Future<List<User>> _getUsers() async {
                     child: Column(
                       children: <Widget>[
                         Container(
+                          height: 300,
                           width:  400,
-                          child: FittedBox(
-                              child: Image(image: NetworkImage('http://img.lanimg.com/tuku/yulantu/140804/330797-140P411305089-lp.jpg'), )
-                          ),),
+                          child: Image(
+                              image: NetworkImage(
+                                  snapshot.data[i].resUrla),
+                              fit: BoxFit.cover),),
                         Container(
                           child: Column(
                             children: <Widget>[
@@ -252,6 +254,8 @@ class User {
   final String phoneNumber;
   final String opentime;
   final String closetime;
+  final String resUrla;
 
-  User(this.rest_ID, this.rest_name, this.type, this.address, this.phoneNumber, this.opentime, this.closetime);
+
+  User(this.rest_ID, this.rest_name, this.type, this.address, this.phoneNumber, this.opentime, this.closetime,this.resUrla);
 }

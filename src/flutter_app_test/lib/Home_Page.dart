@@ -11,7 +11,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'special.dart';
-
+import 'chooserest.dart';
 Future<void> showAlert(BuildContext context) {
   return showDialog<void>(
     context: context,
@@ -98,7 +98,7 @@ class Home_Page extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
                         child: Image.asset(
-                          'image/韓國瑜.jpg',
+                          'image/金城武.jpg',
                           height: 70,
                           width: 70,
                           fit: BoxFit.fill,
@@ -134,11 +134,21 @@ class Home_Page extends StatelessWidget {
                       ),
                       FlatButton(
                         child: Image.asset('image/IconMission.png'),
-                        onPressed: () {},
+                        onPressed: () async {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Special()));
+                        },
                       ),
                       FlatButton(
                         child: Image.asset('image/IconWait.png'),
-                        onPressed: () {},
+                        onPressed: () async {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => chooserest()));
+                        },
                       )
                     ],
                   ),

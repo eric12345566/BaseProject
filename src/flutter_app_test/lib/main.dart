@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_test/Meeting.dart';
 import 'package:flutter_app_test/Merging.dart';
 import 'package:provider/provider.dart';
 import 'Login_page.dart';
@@ -37,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         DinnerCard.id: (context) => DinnerCard(),
         Mer.id: (context) => Mer(),
         Choose.id : (context) =>Choose(),
+        Meeting.id : (context) =>Meeting(),
       }),
     );
   }

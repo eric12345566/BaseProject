@@ -1,8 +1,8 @@
-import 'dart:ui' as prefix0;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Home_Page.dart';
+import 'Meeting.dart';
 
 class DinnerCard extends StatelessWidget {
   static const String id = "DinnerCard";
@@ -192,7 +192,10 @@ class DinnerCard extends StatelessWidget {
                     ),
                     color: Colors.white,
                     onPressed:(){
-
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Meeting()));
                     },
                   ),
                 ),

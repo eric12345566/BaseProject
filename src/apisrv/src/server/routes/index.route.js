@@ -5,6 +5,8 @@ import resturant from './resturant.route';
 import mission from './mission.route';
 // import mission_done from './mission_done.route';
 import coupon from './coupon.route';
+import user from './user.route';
+import slot from './slot.route';
 
 const router = express.Router();
 
@@ -34,10 +36,16 @@ router.get('/sqlTest', (req, res) => {
   });
 });
 
+/** User Router */
+router.use('/user', user);
+
 /** Article Router */
 router.use('/resturant', resturant);
 router.use('/mission', mission);
 // router.use('/mission_done', mission_done);
 router.use('/coupon', coupon);
+
+/** Slot Router */
+router.use('/slot', slot);
 
 export default router;

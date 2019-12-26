@@ -9,8 +9,9 @@ import 'DinnerCard.dart';
 import 'Mission_Page.dart';
 import 'Merging.dart';
 import 'Choose.dart';
+import 'voucher.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Voucher_home());
 
 class MyApp extends StatelessWidget {
   @override

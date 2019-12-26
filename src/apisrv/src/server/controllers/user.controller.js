@@ -11,7 +11,13 @@ const userPost = (req, res) => {
     userpassword: bcrypt.hashSync(req.body.userpassword, 10), // 密碼加密,
     email: req.body.email,
     birthday: req.body.birthday,
-    gender: req.body.gender
+    gender: req.body.gender,
+    uni: req.body.uni,
+    dp: req.body.dp,
+    year: req.body.year,
+    like_eat: req.body.like_eat,
+    rating: req.body.rating,
+    pic: req.body.pic
   };
   userModule.createUser(insertValues).then((result) => {
     res.send(result); // 成功回傳result結果

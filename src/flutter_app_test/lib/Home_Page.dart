@@ -47,7 +47,7 @@ class Home_Page extends StatelessWidget {
 
       users.add(user);
 
-      print(users.length);
+      //print(users.length);
     }
     return users;
   }
@@ -61,7 +61,26 @@ class Home_Page extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: 50,
+                  height: 10,
+                ),
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      FlatButton(
+                        child: Icon(
+                          Icons.search,
+                          color: Colors.amber.shade900,
+                          size: 40,
+                        ),
+                        onPressed: () {
+                          showSearch(context: context, delegate: DataSearch());
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 Container(
                   child: Row(
@@ -318,6 +337,120 @@ class Home_Page extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class DataSearch extends SearchDelegate<String> {
+  final data = [
+    "a漢堡王",
+    "b麥當勞",
+    "c擄胃專家",
+    "d小品屋",
+    "f炒飯英雄",
+    "g黑盒子",
+    "h九州拉麵",
+    "i拉牙漢堡"
+  ];
+  final rData = ["a漢堡王", "b麥當勞", "c擄胃專家", "d小品屋"];
+  final idData = [1, 2, 3, 7, 4, 5, 6, 8];
+
+  int indexId = 1;
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    // TODO: implement buildActions
+    return [
+      IconButton(
+          icon: Icon(Icons.clear),
+          onPressed: () {
+            query = "";
+          })
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    // TODO: implement buildLeading
+    return IconButton(
+        icon: AnimatedIcon(
+            icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
+        onPressed: () {
+          close(context, null);
+        });
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text("你選擇的是"),
+            GestureDetector(
+              onTap: () {
+                this.close(context, this.query);
+                print("idindex:");
+                print(indexId);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Mer(
+                              rid: this.idData[indexId],
+                            )));
+              },
+              child: Text(
+                this.query,
+                style: Theme.of(context)
+                    .textTheme
+                    .display1
+                    .copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // TODO: implement buildSuggestions
+    final suggestionList =
+        query.isEmpty ? rData : data.where((p) => p.startsWith(query)).toList();
+    return ListView.builder(
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(Icons.location_city),
+        onTap: () {
+          this.query = suggestionList[index];
+          for (var i = 0; i < 8; i++) {
+            if (this.query == this.data[i]) {
+              this.indexId = i;
+            }
+          }
+          print("hellp");
+          print(this.indexId);
+          showResults(context);
+        },
+        title: RichText(
+          text: TextSpan(
+            text: suggestionList[index].substring(0, query.length),
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+            children: [
+              TextSpan(
+                text: suggestionList[index].substring(query.length),
+                style: TextStyle(color: Colors.grey),
+              )
+            ],
+          ),
+        ),
+      ),
+      itemCount: suggestionList.length,
     );
   }
 }

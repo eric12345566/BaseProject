@@ -23,7 +23,7 @@ class Voucher extends StatefulWidget {
   _VoucherState createState() => _VoucherState();
 }
 
-dynamic output = '可使用';
+dynamic output = '已過期';
 int flag;
 
 Future<void> showAlert(BuildContext context) {
@@ -31,31 +31,18 @@ Future<void> showAlert(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text(
-          '是否要',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-          ),
-        ),
-        content: const Text('使用優惠卷',style: TextStyle(
+
+        content: const Text('優惠卷已過期',style: TextStyle(
           color: Colors.black,
           fontSize: 15,
         ),),
         actions: <Widget>[
           FlatButton(
-            child: Text('確定'),
-            onPressed: () {
-              Navigator.of(context).pop();
-              output = "已使用";
-            },
-          ),
-          FlatButton(
-            child: Text('取消'),
+            child: Text('我知道了！'),
             onPressed: () {
               Navigator.of(context).pop();
             },
-          ),
+          )
         ],
       );
     },
@@ -121,7 +108,7 @@ class _VoucherState extends State<Voucher> {
         ),
       ),
       floatingActionButton: FloatingActionButton(onPressed: null),
-      backgroundColor: Colors.orange,
+      backgroundColor: Colors.deepOrangeAccent,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(children: <Widget>[
@@ -174,8 +161,10 @@ class _VoucherState extends State<Voucher> {
                           image: AssetImage('sisterimage/image.png'),
                         ),
                       ),
+                      SizedBox(width: 20,),
                       Container(
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Container(
                               child: Text(
@@ -189,7 +178,7 @@ class _VoucherState extends State<Voucher> {
                             ),
                             Container(
                               child: Text(
-                                '期限 :2019-12-31',
+                                '期限 :2019-12-25',
                                 style: TextStyle(
                                   color: Colors.black26,
                                   fontSize: 20,

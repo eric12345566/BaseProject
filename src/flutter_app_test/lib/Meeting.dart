@@ -239,9 +239,7 @@ class Meeting extends StatelessWidget {
                                   ),
                                 ),
                                 onTap: () {
-                                  final snackBar =
-                                      new SnackBar(content: new Text("Tap"));
-                                  Scaffold.of(context).showSnackBar(snackBar);
+
                                 },
                               ),
                             ),

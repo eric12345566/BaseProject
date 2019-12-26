@@ -163,9 +163,12 @@ class Home_Page extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: Card(
                           child: InkWell(
-                            onTap: () async {
+                            onTap: () {
                               {
-                                showAlert(context);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Mer(rid: 1)));
                               }
                             },
                             child: Column(
@@ -201,7 +204,7 @@ class Home_Page extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Mer()));
+                                      builder: (context) => Mer(rid: 2)));
                               print('yeah');
                             },
                             child: Column(

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Home_Page.dart';
 
-void main() => runApp(MaterialApp(
-      home: Special(),
-    ));
 
-//創建第一頁
 class Special extends StatefulWidget {
   static const String id = "special";
 

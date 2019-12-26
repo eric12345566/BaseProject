@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'Home_Page.dart';
-
+import 'MarkPage.dart';
 
 class Chat extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -224,6 +224,22 @@ class Chat extends StatelessWidget {
                           ),
                         ),
                       ],
+
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      color: Colors.deepOrangeAccent,
+                      child: FlatButton(
+                        child: Text('評分這次晚餐',style: TextStyle(color: Colors.white)),
+                        onPressed:()async {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MarkPage()));
+                        },
+                      ),
                     )
                   ],
                 ),

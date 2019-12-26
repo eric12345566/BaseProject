@@ -6,7 +6,7 @@ import 'chooserest.dart';
 
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
-dynamic output = 'abc';
+dynamic output = '可使用';
 
 Future<void> showAlert(BuildContext context) {
   return showDialog<void>(

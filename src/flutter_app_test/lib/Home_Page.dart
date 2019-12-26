@@ -180,7 +180,12 @@ class Home_Page extends StatelessWidget {
                             child: InkWell(
                               onTap: () async {
                                 {
-                                  showAlert(context);
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context)=>Mer(rid: snapshot.data[rest_ID].rest_ID,)
+                                      )
+                                  );
                                 }
                               },
                               child: Column(
@@ -251,7 +256,12 @@ class Home_Page extends StatelessWidget {
                             child: InkWell(
                               onTap: () async {
                                 {
-                                  showAlert(context);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context)=>Mer(rid: snapshot.data[rest_ID].rest_ID,)
+                                    )
+                                  );
                                 }
                               },
                               child: Column(

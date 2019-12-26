@@ -1,7 +1,7 @@
 import express from 'express';
 import couponCtrl from '../controllers/coupon.controller';
 import paramValidation from '../../config/param-validation-mission';
-import validate from  '../../config/param-validation-mission';
+import validate from '../../config/param-validation-mission';
 
 const router = express.Router();
 

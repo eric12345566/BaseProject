@@ -324,7 +324,8 @@ class Mer extends StatelessWidget {
                     ],
                   );
                 }
-              }),
+              }
+              ),
         ),
       ),
     ));

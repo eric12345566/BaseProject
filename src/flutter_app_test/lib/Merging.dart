@@ -9,16 +9,6 @@ class Mer extends StatelessWidget {
   int rid;
   Mer({this.rid = 1});
 
-  // 餐廳詳細資訊
-  int restId;
-  String restName = "";
-  String address = "";
-  String phoneNumber = "";
-  String openTime = "";
-  String closeTime = "";
-
-  String test = "";
-
   Future<List<RestData>> _getData() async {
     var data =
         await http.get("http://ericlion.tw:3000/api/resturant/${this.rid}");
@@ -26,8 +16,17 @@ class Mer extends StatelessWidget {
 
     List<RestData> restDatas = [];
     for (var u in jsonData) {
-      RestData restData = RestData(u['rest_ID'], u['rest_name'], u['address'],
-          u['phoneNumber'], u['opentime'], u['closetime']);
+      RestData restData = RestData(
+          u['rest_ID'],
+          u['rest_name'],
+          u['address'],
+          u['phoneNumber'],
+          u['opentime'],
+          u['closetime'],
+          u['res_urla'],
+          u['res_urlb'],
+          u['res_urlc'],
+          u['res_urld']);
       restDatas.add(restData);
     }
     print("data lenth:");
@@ -65,11 +64,15 @@ class Mer extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         width: 400,
+                        height: 300,
                         child: FittedBox(
                             child: Image(
-                          image: NetworkImage(
-                              'http://img.lanimg.com/tuku/yulantu/140804/330797-140P411305089-lp.jpg'),
+                          image: NetworkImage(snapshot.data[0].resUrla),
+                          fit: BoxFit.cover,
                         )),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Container(
                         child: Column(
@@ -168,25 +171,30 @@ class Mer extends StatelessWidget {
                                   Container(
                                     height: 160.0,
                                     width: 160.0,
+                                    padding: EdgeInsets.only(right: 10),
                                     child: Image(
-                                      image:
-                                          AssetImage('sisterimage/image1.png'),
+                                      image: NetworkImage(
+                                          snapshot.data[0].resUrlb),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 160.0,
+                                    width: 160.0,
+                                    padding: EdgeInsets.only(right: 10),
+                                    child: Image(
+                                      image: NetworkImage(
+                                          snapshot.data[0].resUrlc),
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                   Container(
                                     height: 160.0,
                                     width: 160.0,
                                     child: Image(
-                                      image:
-                                          AssetImage('sisterimage/image2.png'),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 160.0,
-                                    width: 160.0,
-                                    child: Image(
-                                      image:
-                                          AssetImage('sisterimage/image4.png'),
+                                      image: NetworkImage(
+                                          snapshot.data[0].resUrld),
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ],
@@ -324,8 +332,7 @@ class Mer extends StatelessWidget {
                     ],
                   );
                 }
-              }
-              ),
+              }),
         ),
       ),
     ));
@@ -339,7 +346,11 @@ class RestData {
   final String phone;
   final String opTime;
   final String clsTime;
+  final String resUrla;
+  final String resUrlb;
+  final String resUrlc;
+  final String resUrld;
 
   RestData(this.restId, this.restName, this.address, this.phone, this.opTime,
-      this.clsTime);
+      this.clsTime, this.resUrla, this.resUrlb, this.resUrlc, this.resUrld);
 }

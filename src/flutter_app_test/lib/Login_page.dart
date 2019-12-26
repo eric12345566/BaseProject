@@ -47,7 +47,7 @@ class Login_page extends StatelessWidget {
     print(statusCode);
     print(body);
 
-    if (true) {
+    if (body == '登入成功') {
       //Navigator.pushNamed(context, Home_Page.id);
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => Home_Page()),

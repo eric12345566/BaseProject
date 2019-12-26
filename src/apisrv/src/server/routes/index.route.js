@@ -1,7 +1,10 @@
 import express from 'express';
 import mysql from 'mysql';
-import config from '../../config/config';
-import user from './user.route';
+import config from './../../config/config';
+import resturant from './resturant.route';
+import mission from './mission.route';
+import mission_done from './mission_done.route';
+import coupon from './coupon.route';
 
 const router = express.Router();
 
@@ -15,11 +18,12 @@ router.get('/sqlTest', (req, res) => {
   const connectionPool = mysql.createPool({ // 建立一個連線池
     connectionLimit: 10, // 限制池子連線人數
     host: config.mysqlHost, // 主機名稱
-    user: config.mysqlUserName, // 用戶名稱
+    user: config.mysqlUserName, // 用戶名稱 
     password: config.mysqlPass, // 資料庫密碼
     database: config.mysqlDatabase // 資料庫名稱
   });
-  connectionPool.getConnection((err, connection) => { // 建立一個連線若錯誤回傳err
+
+  connectionPool.getConnection((err, connection) => { //建立一個連線若錯誤回傳err
     if (err) {
       res.send(err);
       console.log('連線失敗！');
@@ -30,7 +34,10 @@ router.get('/sqlTest', (req, res) => {
   });
 });
 
-/** User Router */
-router.use('/user', user);
+/** Article Router */
+router.use('/resturant', resturant);
+router.use('/mission', mission);
+router.use('/mission_done', mission_done);
+router.use('/coupon', coupon);
 
 export default router;

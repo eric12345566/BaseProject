@@ -31,7 +31,10 @@ class Meeting extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
                   alignment: Alignment.bottomLeft,
                   child: IconButton(
-                    onPressed: _showSnack,
+                    onPressed: (){
+                      Navigator.pop(context,
+                          MaterialPageRoute(builder: (context) => DinnerCard()));
+                    },
                     icon: Icon(
                       Icons.arrow_back_ios,
                       size: 30.0,

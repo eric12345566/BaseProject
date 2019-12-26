@@ -46,7 +46,7 @@ class Mer extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white30,
+        backgroundColor: Colors.orangeAccent,
         title: Text('餐廳資訊內容'),
       ),
       body: SafeArea(

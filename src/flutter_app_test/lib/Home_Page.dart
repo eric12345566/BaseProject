@@ -10,6 +10,7 @@ import 'Register_Page.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'special.dart';
 
 Future<void> showAlert(BuildContext context) {
   return showDialog<void>(
@@ -133,7 +134,12 @@ class Home_Page extends StatelessWidget {
             ),
             FlatButton(
               child: Image.asset('image/IconMission.png'),
-              onPressed: () {},
+              onPressed: () async {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Special()));
+              },
             ),
             FlatButton(
               child: Image.asset('image/IconWait.png'),

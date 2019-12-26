@@ -1,16 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Home_Page.dart';
-void main(){
-  runApp(
-    Choose(),
-  );
-}
+import 'dart:async';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Choose extends StatelessWidget {
   static const String id = "Choose";
 
+  Future<List<User>> _getUsers() async {
+    var data = await http.get("http://ericlion.tw:3000/api/resturant/list/10");
 
+    var jsonData = json.decode(data.body);
+
+    List<User> users = [];
+
+    for (var u in jsonData) {
+      User user = User(u["rest_ID"], u["rest_name"], u["address"], u["type"], u["phoneNumber"] ,
+      u["opentime"], u["closetime"]);
+
+      users.add(user);
+
+      print(users.length);
+    }
+    return users;
+  }
+
+
+
+  
 
 
 
@@ -205,3 +223,14 @@ class Choose extends StatelessWidget {
   }
 }
 
+class User {
+  final int rest_ID;
+  final String rest_name;
+  final String address;
+  final String type;
+  final String phoneNumber;
+  final String opentime;
+  final String closetime;
+
+  User(this.rest_ID, this.rest_name, this.type, this.address, this.phoneNumber, this.opentime, this.closetime);
+}
